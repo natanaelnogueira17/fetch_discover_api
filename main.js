@@ -51,6 +51,20 @@ function updateUser(updateId, id){
 }
 
 
+// rota para delete
+function deleteUser(id){
+    fetch(`${url}/${id}`, {
+        method:"DELETE",        
+        headers:{
+            "Content-type": "application/json;charset=UTF-8" 
+        }
+    })
+    .then(response => response.json())
+    .then(data => alertAPI.textContent = data)
+    .catch(error => console.log(error))
+}
+
+
 //constantes
 const newUser ={
     name: "olivia Zars",
@@ -66,7 +80,7 @@ const updateId ={
 }
 
 //chamando a rota pra insert into  user
-adduser(newUser)
+//adduser(newUser)
 
 //chamando a rota para select * from user where id =?
 getUser()
@@ -75,4 +89,7 @@ getUser()
 getUsers()
 
 //chamando a rota update table user
-updateUser(updateId, 9)
+//updateUser(updateId, 9)
+
+// chamando a rota delete user
+deleteUser(8)
